@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>AdminHub</title>
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<section id="sidebar">
+		<a href="#" class="brand">
+			<i class='bx bxs-smile'></i>
+			<span class="text">AdminHub</span>
+		</a>
+		<ul class="side-menu top">
+			<li class="active">
+				<a href="#">
+					<i class='bx bxs-dashboard'></i>
+					<span class="text">Dashboard</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class='bx bxs-group'></i>
+					<span class="text">Team</span>
+				</a>
+			</li>
+		</ul>
+		<ul class="side-menu">
+			<li>
+				<a href="#">
+					<i class='bx bxs-cog'></i>
+					<span class="text">Settings</span>
+				</a>
+			</li>
+			<li>
+				<a href="#" class="logout">
+					<i class='bx bxs-log-out-circle'></i>
+					<span class="text">Logout</span>
+				</a>
+			</li>
+		</ul>
+	</section>
+
+	<section id="content">
+		<nav>
+			<i class='bx bx-menu'></i>
+			<h2>Admin Panel</h2>
+		</nav>
+
+		<main>
+			<div class="head-title">
+				<h1>Dashboard</h1>
+			</div>
+
+			<ul class="box-info">
+				<li><i class='bx bxs-calendar-check'></i><h3>1020</h3><p>New Orders</p></li>
+				<li><i class='bx bxs-group'></i><h3>2834</h3><p>Visitors</p></li>
+				<li><i class='bx bxs-dollar-circle'></i><h3>$2543</h3><p>Total Sales</p></li>
+			</ul>
+
+			<div class="todo">
+				<div class="todo-header">
+					<h3>Todos</h3>
+					<input type="text" id="todoInput" placeholder="Enter new task...">
+					<button onclick="submitTodo()">Add Todo</button>
+				</div>
+				<ul class="todo-list" id="todoList">
+					<li><p>Initial Setup</p><i class='bx bx-trash' onclick="deleteTodo(this)"></i></li>
+				</ul>
+			</div>
+
+			<div class="table-data">
+				<h3>Recent Orders</h3>
+				<table id="orderTable">
+					<thead>
+						<tr>
+							<th>User</th>
+							<th>Date</th>
+							<th>Status</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody id="orderBody">
+						<tr onclick="toggleStatus(this)">
+							<td><img src="img/people.png"> John</td>
+							<td>01-10-2021</td>
+							<td><span class="status">Completed</span></td>
+							<td><button onclick="deleteRow(this)">Delete</button></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div class="team-section">
+				<h3>Our Team</h3>
+				<div class="team-grid">
+					<div class="team-card">
+						<img src="img/people.png">
+						<h4>Vedang Mishra</h4>
+						<p>Frontend Developer</p>
+					</div>
+					<div class="team-card">
+						<img src="img/people.png">
+						<h4>Sushant</h4>
+						<p>Backend Developer</p>
+					</div>
+				</div>
+			</div>
+		</main>
+	</section>
+
+	<script>
+		function deleteRow(btn) {
+			btn.closest('tr').remove();
+			event.stopPropagation();
+		}
+
+		function deleteTodo(icon) {
+			icon.closest('li').remove();
+		}
+
+		function submitTodo() {
+			const input = document.getElementById("todoInput");
+			const taskText = input.value.trim();
+			if (taskText === "") return;
+
+			const todoList = document.getElementById("todoList");
+			const li = document.createElement("li");
+			li.innerHTML = `<p>${taskText}</p><i class='bx bx-trash' onclick='deleteTodo(this)'></i>`;
+			todoList.appendChild(li);
+
+			const orderBody = document.getElementById("orderBody");
+			const row = document.createElement("tr");
+			row.setAttribute("onclick", "toggleStatus(this)");
+			row.innerHTML = `
+				<td><img src="img/people.png"> ${taskText}</td>
+				<td>${new Date().toLocaleDateString()}</td>
+				<td><span class="status">Pending</span></td>
+				<td><button onclick="deleteRow(this)">Delete</button></td>
+			`;
+			orderBody.appendChild(row);
+
+			input.value = "";
+		}
+
+		function toggleStatus(row) {
+			const statusSpan = row.querySelector(".status");
+			statusSpan.textContent = "Completed";
+			statusSpan.classList.add("completed");
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
+/* Reset */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Poppins', sans-serif;
+	background: #f1f4f9;
+	color: #333;
+}
+
+/* Sidebar */
+#sidebar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 250px;
+	height: 100vh;
+	background: #753ce6;
+	color: #fff;
+	padding: 20px;
+}
+
+#sidebar .brand {
+	display: flex;
+	align-items: center;
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 30px;
+	color: white;
+}
+
+#sidebar .side-menu {
+	list-style: none;
+	margin-top: 20px;
+}
+
+#sidebar .side-menu li {
+	margin: 15px 0;
+}
+
+#sidebar .side-menu li a {
+	color: white;
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	font-size: 16px;
+}
+
+#sidebar .side-menu li a i {
+	margin-right: 10px;
+}
+
+#sidebar .side-menu li.active a {
+	font-weight: bold;
+}
+
+/* Content */
+#content {
+	margin-left: 250px;
+	padding: 20px;
+}
+
+/* Navbar */
+nav {
+	background: white;
+	padding: 15px 20px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+
+/* Head Title */
+.head-title {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.head-title h1 {
+	font-size: 28px;
+}
+
+.head-title button {
+	background-color: #3c91e6;
+	color: white;
+	border: none;
+	padding: 8px 16px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+/* Box Info */
+.box-info {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+}
+
+.box-info li {
+	background: white;
+	padding: 20px;
+	flex: 1;
+	min-width: 200px;
+	border-radius: 8px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	text-align: center;
+}
+
+.box-info li i {
+	font-size: 30px;
+	margin-bottom: 10px;
+	color: #3c91e6;
+}
+
+/* Orders Table */
+.table-data {
+	background: white;
+	padding: 20px;
+	border-radius: 8px;
+	margin-top: 20px;
+	overflow-x: auto;
+}
+
+.table-data table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.table-data th, .table-data td {
+	padding: 12px;
+	text-align: left;
+	border-bottom: 1px solid #eee;
+}
+
+.table-data th {
+	background: #f9f9f9;
+}
+
+.table-data img {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	margin-right: 8px;
+	vertical-align: middle;
+}
+
+.status {
+	background: rgb(60, 0, 128);
+	color:rgb(245, 249, 245);
+	padding: 4px 12px;
+	border-radius: 12px;
+	font-size: 12px;
+}
+
+/* Todo */
+.todo {
+	background: white;
+	padding: 20px;
+	margin-top: 20px;
+	border-radius: 8px;
+}
+
+.todo-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 15px;
+}
+
+.todo-list {
+	list-style: none;
+}
+
+.todo-list li {
+	background: #f5f5f5;
+	padding: 10px 15px;
+	margin-bottom: 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 6px;
+}
+
+.todo-list li i {
+	cursor: pointer;
+	color: #ff4d4d;
+}
+
+/* Team Section */
+.team-section {
+	background: white;
+	padding: 20px;
+	margin-top: 20px;
+	border-radius: 8px;
+}
+
+.team-grid {
+	display: flex;
+	gap: 20px;
+	flex-wrap: wrap;
+}
+
+.team-card {
+	background: #f5f5f5;
+	padding: 15px;
+	border-radius: 8px;
+	width: 200px;
+	text-align: center;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.team-card img {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	margin-bottom: 10px;
+}
+
+.team-card h4 {
+	margin-bottom: 5px;
+	font-size: 16px;
+}
+
+.team-card p {
+	font-size: 14px;
+	color: #666;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+	#sidebar {
+		width: 200px;
+	}
+	#content {
+		margin-left: 200px;
+	}
+	.box-info {
+		flex-direction: column;
+	}
+	.team-grid {
+		justify-content: center;
+	}
+}
